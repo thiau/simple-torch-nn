@@ -1,9 +1,12 @@
+""" Dataset Management Module """
+
 import pandas as pd
 import torch
 from sklearn.preprocessing import StandardScaler
 
 
 def load_pands_dataset():
+    """ Load main dataset """
     dataset = pd.read_csv(
         "resources/datasets/StudentsPerformanceCustom.csv", sep=";")
     dataset = dataset.iloc[:, 0:6]
@@ -13,14 +16,15 @@ def load_pands_dataset():
 
 
 def create_tensors(dataset):
-    X = dataset.iloc[:, [x for x in range(
+    """ Create PyTorch Tensors based in a dataset """
+    variables = dataset.iloc[:, [x for x in range(
         0, len(dataset.columns)) if x != 0]].values
-    y = dataset.iloc[:, 0].values
+    labels = dataset.iloc[:, 0].values
 
     scaler = StandardScaler()
-    X = scaler.fit_transform(X)
+    variables = scaler.fit_transform(variables)
 
-    X = torch.FloatTensor(X)
-    y = torch.tensor(y)
+    variables = torch.FloatTensor(variables)
+    labels = torch.tensor(labels)
 
-    return X, y
+    return variables, labels

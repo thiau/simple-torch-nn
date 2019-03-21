@@ -1,10 +1,12 @@
-import torch
+""" Training Management Module """
+
 import torch.nn as nn
 import torch.nn.functional as F
-import matplotlib.pyplot as plt
 
 
 class Classifier(nn.Module):
+    """ PyTorch NN Classifier Class """
+
     def __init__(self, input_size, nb_action, nb_neurons=30):
         super(Classifier, self).__init__()
         self.input_size = input_size
@@ -15,14 +17,16 @@ class Classifier(nn.Module):
         self.fc2 = nn.Linear(nb_neurons, nb_neurons)
         self.fc3 = nn.Linear(nb_neurons, nb_action)
 
-    def forward(self, input):
-        x = F.relu(self.fc1(input))
+    def forward(self, input_vars):
+        """ NN Forward Method"""
+        x = F.relu(self.fc1(input_vars))
         x = F.relu(self.fc2(x))
         values = self.fc3(x)
         return values
 
-    def predict(self, input):
-        predictions = F.softmax(self.forward(input), dim=1)
+    def predict(self, input_vars):
+        """ Predict the output based on input variables """
+        predictions = F.softmax(self.forward(input_vars), dim=1)
         best_pred = list()
         for t in predictions:
             if t[0] > t[1]:

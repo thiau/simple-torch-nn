@@ -1,5 +1,8 @@
-def train(model, input_data, labels, criterion, optimizer):
-    epochs = 5000
+""" Training Management Module """
+
+
+def train(model, input_data, labels, criterion, optimizer, epochs=5000):
+    """ Train the Neural Network """
     losses = list()
     for _ in range(epochs):
         y_pred = model.forward(input_data)
