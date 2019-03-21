@@ -13,3 +13,5 @@ Simple Neural Net implementation and training using [PyTorch](https://pytorch.or
 ### How to run the app
 - Run `pip install -r requirements.txt` in the root folder
 - Run `python ai.py`
+
+teste
