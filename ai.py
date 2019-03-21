@@ -1,12 +1,14 @@
-from app.network.classifier import Classifier
+""" Dataset Management Module """
+
+import logging
 import torch.nn as nn
 import torch.optim as optim
 from sklearn.metrics import accuracy_score
 from app.helpers.training import train
 from app.helpers.dataset import load_pands_dataset, create_tensors
-from app.helpers.log import SimpleLogger
+from app.network.classifier import Classifier
 
-logging = SimpleLogger("pytorch-nn")
+logging.basicConfig(level=logging.INFO)
 
 dataset = load_pands_dataset()
 X, y = create_tensors(dataset)
@@ -21,4 +23,4 @@ optimizer = optim.Adam(model.parameters(), lr=0.0001)
 train(model, X, y, criterion, optimizer)
 
 accuracy = accuracy_score(model.predict(X), y)
-logging.info("Accuracy is: {0}".format(accuracy))
+logging.info("Accuracy is: %s", accuracy)
