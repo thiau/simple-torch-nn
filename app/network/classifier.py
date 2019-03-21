@@ -1,4 +1,4 @@
-""" Training Management Module """
+""" PyTorch Classifier Class Module """
 
 import torch.nn as nn
 import torch.nn.functional as F
