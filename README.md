@@ -8,8 +8,8 @@ Simple Neural Net implementation and training using [PyTorch](https://pytorch.or
 ## Technical Notes
 
 ### Dependencies
--  `python` version 3.x
+  - `python` version 3.x
 
 ### How to run the app
--  Run `pip install -r requirements.txt` in the root folder
--  Run `python ai.py`
+  - Run `pip install -r requirements.txt` in the root folder
+  - Run `python ai.py`
