@@ -5,12 +5,12 @@ import torch.nn as nn
 import torch.optim as optim
 from sklearn.metrics import accuracy_score
 from app.helpers.training import train
-from app.helpers.dataset import load_pands_dataset, create_tensors
+from app.helpers.dataset import load_pandas_dataset, create_tensors
 from app.network.classifier import Classifier
 
 logging.basicConfig(level=logging.INFO)
 
-dataset = load_pands_dataset()
+dataset = load_pandas_dataset()
 X, y = create_tensors(dataset)
 
 nb_classes = 2
