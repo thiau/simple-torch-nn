@@ -5,7 +5,7 @@ import torch
 from sklearn.preprocessing import StandardScaler
 
 
-def load_pands_dataset():
+def load_pandas_dataset():
     """ Load main dataset """
     dataset = pd.read_csv(
         "resources/datasets/StudentsPerformanceCustom.csv", sep=";")
