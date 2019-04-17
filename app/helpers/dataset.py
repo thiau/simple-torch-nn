@@ -17,8 +17,9 @@ def load_pandas_dataset():
 
 def create_tensors(dataset):
     """ Create PyTorch Tensors based in a dataset """
-    variables = dataset.iloc[:, [x for x in range(
-        0, len(dataset.columns)) if x != 0]].values
+    variables = dataset.iloc[:, [
+        x for x in range(0, len(dataset.columns)) if x != 0
+    ]].values
     labels = dataset.iloc[:, 0].values
 
     scaler = StandardScaler()
