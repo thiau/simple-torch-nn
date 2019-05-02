@@ -7,15 +7,15 @@ import torch.nn.functional as F
 class Classifier(nn.Module):
     """ PyTorch NN Classifier Class """
 
-    def __init__(self, input_size, nb_action, nb_neurons=30):
+    def __init__(self, input_size, nb_output, nb_neurons=30):
         super(Classifier, self).__init__()
         self.input_size = input_size
-        self.nb_action = nb_action
+        self.nb_output = nb_output
         self.nb_neurons = nb_neurons
 
         self.fc1 = nn.Linear(input_size, nb_neurons)
         self.fc2 = nn.Linear(nb_neurons, nb_neurons)
-        self.fc3 = nn.Linear(nb_neurons, nb_action)
+        self.fc3 = nn.Linear(nb_neurons, nb_output)
 
     def forward(self, input_vars):
         """ NN Forward Method"""
